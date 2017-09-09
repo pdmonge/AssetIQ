@@ -1,25 +1,23 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-	<title>Employee</title>
+    <title>Employee</title>
     <!-- Bootstrap -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <!-- jQuery -->
-    <script src="https://code.jquery.com/jquery-3.2.1.min.js"
-            integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
-            crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
     <!-- Firebase -->
-    <script src="https://www.gstatic.com/firebasejs/4.3.0/firebase.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/4.3.1/firebase.js"></script>
 </head>
-<body>
 
+<body>
     <div class="container">
         <!-- Jumbotron Title -->
         <div class="jumbotron">
             <h1 class="text-center">AssetIQ</h1>
             <h4 class="text-center">Your one stop app for employee item inventory tracking</h4>
         </div>
-
         <!-- Nav Bar -->
         <nav class="navbar navbar-default">
             <div class="container-fluid">
@@ -33,7 +31,6 @@
                     </button>
                     <a class="navbar-brand">Take me to the: </a>
                 </div>
-
                 <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                     <ul class="nav navbar-nav">
@@ -47,10 +44,11 @@
                         <button type="submit" class="btn btn-default">Submit</button>
                         <button type="submit" class="btn btn-default">Logout</button>
                     </form>
-                </div><!-- /.navbar-collapse -->
-            </div><!-- /.container-fluid -->
+                </div>
+                <!-- /.navbar-collapse -->
+            </div>
+            <!-- /.container-fluid -->
         </nav>
-
         <!-- Add employee -->
         <div class="row">
             <div class="col-lg-12">
@@ -69,7 +67,6 @@
                                     </div>
                                 </div>
                             </div>
-
                             <div class="form-group">
                                 <label class="col-md-2 control-label">Last Name</label>
                                 <div class="col-md-10 inputGroupContainer">
@@ -105,7 +102,7 @@
                                         <input id="email" placeholder="E-Mail Address" class="form-control" type="text">
                                     </div>
                                 </div>
-                            </div>   
+                            </div>
                             <div class="form-group">
                                 <label class="col-md-2 control-label">Address</label>
                                 <div class="col-md-10 inputGroupContainer">
@@ -125,31 +122,53 @@
                                 </div>
                             </div>
                             <div class="form-group">
+                                <label class="col-md-2 control-label">Asset ID#</label>
+                                <div class="col-md-10 inputGroupContainer">
+                                    <div class="input-group">
+                                        <span class="input-group-addon"><i class="glyphicon glyphicon-barcode"></i></span>
+                                        <input id="assetID" placeholder="123456789" class="form-control" type="text">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
                                 <label class="col-md-2 control-label"></label>
                                 <div class="col-md-1">
                                     <br>
-                                    <button type="button" class="btn btn-primary">Submit</button>
+                                    <button id="inputUser" type="button" class="btn btn-primary">Submit</button>
                                 </div>
                             </div>
-                        
                         </form>
                     </div>
                 </div>
             </div>
         </div>
-        <footer>
-            <nav class="navbar navbar-default navbar-fixed-bottom">
-                <div class="text-center"><br/>&copy;2017 WannaGeeks LLC</div>
-            </nav>
-        </footer>
+        <div class="panel-body ">
+            <table class="table table-hover " id='peopleTable'>
+                <thead>
+                    <tr>
+                        <th><b>Employee Name</b></th>
+                        <th><b>Position</b></th>
+                        <th><b>Department</b></th>
+                        <th><b>Email</b></th>
+                        <th><b>Address</b></th>
+                        <th><b>Phone</b></th>
+                        <th><b>Asset ID #</b></th>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+        </div>
     </div>
-
-	<script
-	  src="https://code.jquery.com/jquery-3.2.1.min.js"
-	  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
-	  crossorigin="anonymous"></script>
-
-	<script type="text/javascript" src='javascript/people.js'></script>
-    
+    <footer>
+        <nav class="navbar navbar-default navbar-fixed-bottom">
+            <div class="text-center">
+                <br/>&copy;2017 WannaGeeks LLC</div>
+        </nav>
+    </footer>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+    <script type="text/javascript" src='javascript/people.js'></script>
 </body>
+
 </html>
