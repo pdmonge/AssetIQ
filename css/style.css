@@ -1,9 +1,7 @@
-/*$mainColor: #ff3b3f;*/
-
 .container {
 	padding-bottom: 70px;
+	
 }
-
 body {
 	background-image: url("../images/pixel_weave_@2X.png");
 }
@@ -28,7 +26,7 @@ select:invalid {
 }
 
 .panel-heading {
-	background-color: $maincolor;
+	background-color: green !important;
     border-color: green !important;
 }
 
