@@ -1,3 +1,5 @@
+
+=======
 var config = {
     apiKey: "AIzaSyCtZ5Ob4IWwqG5UbqHESm1_sCjQaypfexs",
     authDomain: "assetiq-4d15d.firebaseapp.com",
@@ -67,4 +69,4 @@ firebase.database().ref().on("child_added", function(childSnapshot, prevChildKey
     $("#peopleTable > tbody").append("<tr><td>" + name + "</td><td>" + position + "</td><td>" +
         department + "</td><td>" + email + "</td><td>" + address + "</td><td>" + phone + "</td><td>" + assetID + "</td></tr>");
 
-})
+});
