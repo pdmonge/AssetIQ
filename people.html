@@ -1,103 +1,201 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-	<title>Employee</title>
+    <title>Employee</title>
+    <!-- Bootstrap -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+    <!-- Firebase -->
+    <script src="https://www.gstatic.com/firebasejs/4.3.1/firebase.js"></script>
+    <!-- CSS -->
+    <link rel="stylesheet" type="text/css" href="css/reset.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Libre+Barcode+39+Text" rel="stylesheet">
 </head>
+
 <body>
-
-    <div class="row">
-        <div class="col-lg-12">
-            <div class="panel panel-primary">
-                <div class="panel-heading">
-                    <h3 class="panel-title">Add Employee</h3>
+    <div class="container">
+        <!-- Jumbotron Title -->
+        <div class="jumbotron">
+            <h1 class="text-center">AssetIQ</h1>
+            <h2 class="text-center" id="heading-desc">Employee item inventory tracking</h2>
+        </div>
+        <!-- Nav Bar -->
+        <nav class="navbar navbar-default">
+            <div class="container-fluid">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                 <!--    <a class="navbar-brand">Take me to the: </a> -->
                 </div>
-                <div class="panel-body">
-                    <form>
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav">
+                        <li><a href="inventory.html">Inventory Page <span class="sr-only">(current)</span></a></li>
+                        <li><a href="people.html">Employee Page</a></li>
+                    </ul>
+                    <form class="navbar-form navbar-right">
                         <div class="form-group">
-                            <label class="col-md-4 control-label">First Name</label>
-                            <div class="col-md-6 inputGroupContainer">
-                                <div class="input-group">
-                                    <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                                    <input id="first_name" placeholder="First Name" class="form-control" type="text">
-                                </div>
-                            </div>
+                            <input type="text" class="form-control" placeholder="Search">
                         </div>
-
-                        <div class="form-group">
-                            <label class="col-md-4 control-label">Last Name</label>
-                            <div class="col-md-6 inputGroupContainer">
-                                <div class="input-group">
-                                    <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                                    <input id="last_name" placeholder="Last Name" class="form-control" type="text">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="col-md-4 control-label">Position</label>
-                            <div class="col-md-6 inputGroupContainer">
-                                <div class="input-group">
-                                    <span class="input-group-addon"><i class="glyphicon glyphicon-star"></i></span>
-                                    <input id="position" placeholder="Position" class="form-control" type="text">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="col-md-4 control-label">Department</label>
-                            <div class="col-md-6 inputGroupContainer">
-                                <div class="input-group">
-                                    <span class="input-group-addon"><i class="glyphicon glyphicon-briefcase"></i></span>
-                                    <input id="dept" placeholder="Department" class="form-control" type="text">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="col-md-4 control-label">E-Mail</label>
-                            <div class="col-md-6 inputGroupContainer">
-                                <div class="input-group">
-                                    <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
-                                    <input id="email" placeholder="E-Mail Address" class="form-control" type="text">
-                                </div>
-                            </div>
-                        </div>   
-                        <div class="form-group">
-                            <label class="col-md-4 control-label">Address</label>
-                            <div class="col-md-6 inputGroupContainer">
-                                <div class="input-group">
-                                    <span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span>
-                                    <input id="home" placeholder="Address" class="form-control" type="text">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="col-md-4 control-label">Phone #</label>
-                            <div class="col-md-6 inputGroupContainer">
-                                <div class="input-group">
-                                    <span class="input-group-addon"><i class="glyphicon glyphicon-earphone"></i></span>
-                                    <input id="phone" placeholder="(000) 000-0000" class="form-control" type="text">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="col-md-4 control-label"></label>
-                            <div class="col-md-3">
-                                <button type="button" class="btn btn-primary">Submit</button>
-                            </div>
-                        </div>
-                    
+                        <button type="submit" class="btn btn-default">Submit</button>
                     </form>
+                </div>
+                <!-- /.navbar-collapse -->
+            </div>
+            <!-- /.container-fluid -->
+        </nav>
+        <!-- Add employee -->
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="panel panel-primary">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Add Employee</h3>
+                    </div>
+                    <div class="panel-body">
+                        <form>
+                            <div class="form-group">
+                                <label class="col-md-2 control-label">First Name</label>
+                                <div class="col-md-10 inputGroupContainer">
+                                    <div class="input-group">
+                                        <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                                        <input id="first_name" placeholder="First Name" class="form-control" type="text">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-2 control-label">Last Name</label>
+                                <div class="col-md-10 inputGroupContainer">
+                                    <div class="input-group">
+                                        <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                                        <input id="last_name" placeholder="Last Name" class="form-control" type="text">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-2 control-label">Position</label>
+                                <div class="col-md-10 inputGroupContainer">
+                                    <div class="input-group">
+                                        <span class="input-group-addon"><i class="glyphicon glyphicon-star"></i></span>
+                                        <input id="position" placeholder="Position" class="form-control" type="text">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-2 control-label">Department</label>
+                                <div class="col-md-10 inputGroupContainer">
+                                    <div class="input-group">
+                                        <span class="input-group-addon"><i class="glyphicon glyphicon-briefcase"></i></span>
+                                        <select required class="form-control selection-field" id="dept" placeholder="Department" type="text">
+                                             <option value="" disabled selected hidden>Please Select</option>
+                                            <option value="one">Accounting</option>
+                                            <option value="two">Design</option>
+                                            <option value="three">Marketing</option>
+                                            <option value="four">Sales</option>
+                                            <option value="five">Tech Support</option>
+                                        </select>
+                                    </div>
+                                </div>   
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-2 control-label">E-Mail</label>
+                                <div class="col-md-10 inputGroupContainer">
+                                    <div class="input-group">
+                                        <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
+                                        <input id="email" placeholder="E-Mail Address" class="form-control" type="text">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-2 control-label">Address</label>
+                                <div class="col-md-10 inputGroupContainer">
+                                    <div class="input-group">
+                                        <span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span>
+                                        <input id="home" placeholder="Address" class="form-control" type="text">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-2 control-label">Phone #</label>
+                                <div class="col-md-10 inputGroupContainer">
+                                    <div class="input-group">
+                                        <span class="input-group-addon"><i class="glyphicon glyphicon-earphone"></i></span>
+                                        <input id="phone" placeholder="(000) 000-0000" class="form-control" type="text">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <!-- CHANGE LABEL AND/OR OPTION VALUES??? UPDATE ID HERE AND IN JAVASCRIPT???-->
+                                <label class="col-md-2 control-label">Model number(s)</label>
+                                <div class="col-md-10 inputGroupContainer">
+                                    <div class="input-group">
+                                        <span class="input-group-addon"><i class="glyphicon glyphicon-barcode"></i></span>
+                                        <select required class="form-control selection-field" id="assetID" placeholder="Department" type="text">
+                                             <option value="" disabled selected hidden>Please Select</option>
+                                            <option value="one">321321321</option>
+                                            <option value="two">545452552</option>
+                                            <option value="three">778652251</option>
+                                            <option value="four">655546655</option>
+                                            <option value="five">554112358</option>
+                                        </select>
+                                    </div>
+                                </div>   
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-2 control-label"></label>
+                                <div class="col-md-1">
+                                    <br>
+                                    <button id="inputUser" type="button" class="btn btn-primary">Submit</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="panel panel-primary">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Employees</h3>
+                    </div>
+                    <div class="panel-body" id="employee-list-div">
+                        <table class="table table-hover table-bordered table-striped" id="people-table">
+                            <thead>
+                                <tr>
+                                    <th>Employee Name</th>
+                                    <th>Position</th>
+                                    <th>Department</th>
+                                    <th>Email</th>
+                                    <th>Address</th>
+                                    <th>Phone</th>
+                                    <th>Model Number(s)</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!-- table items go here -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <footer>
+            <nav class="navbar navbar-default navbar-fixed-bottom">
+                <div class="text-center"><br><span>&copy;2017 WannaGeeks LLC</span><span><button type="submit" class="btn btn-default" id="logout-button">Logout</button></span></div>
+            </nav>
+        </footer>
     </div>
-
-
-
-	<script
-	  src="https://code.jquery.com/jquery-3.2.1.min.js"
-	  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
-	  crossorigin="anonymous"></script>
-
-	<script type="text/javascript" src='javascript/people.js'></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+    <script type="text/javascript" src='javascript/people.js'></script>
 </body>
+
 </html>
