@@ -3,45 +3,62 @@
 <head>
 	<title>AssetIQ</title>
 	<!-- Bootstrap -->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <!-- jQuery -->
-	<script
-	  src="https://code.jquery.com/jquery-3.2.1.min.js"
-	  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
-	  crossorigin="anonymous"></script>
-	<!-- Firebase -->
-	<script src="https://www.gstatic.com/firebasejs/4.3.1/firebase.js"></script>
-	<script type="text/javascript" src='javascript/firebaseinit.js'></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+    <!-- Firebase -->
+    <script src="https://www.gstatic.com/firebasejs/4.3.1/firebase.js"></script>
+    <!-- CSS -->
+    <link rel="stylesheet" type="text/css" href="style/css/reset.css">
+    <link rel="stylesheet" type="text/css" href="style/css/style.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Libre+Barcode+39+Text" rel="stylesheet">
+    <!-- Initialize Firebase JS -->
+    <script type="text/javascript" src="javascript/firebaseinit.js"></script>
 </head>
+
 <body>
-<div class='container'>
-<div class='row' style="margin-top: 30px">
-<div class='col-md-4'>
-<div class="panel panel-default">
-  <div class="panel-heading">
-    <h3 class="panel-title">Login</h3>
-  </div>
-  <div class="panel-body">
-	  <form>
-		  <div class="form-group">
-		  	<p id="login-error"></p>
-		    <label for="loginInputEmail">Email address</label>
-		    <input type="email" class="form-control" id="loginInputEmail" placeholder="Email">
-		  </div>
-		  <div class="form-group">
-		    <label for="loginInputPassword">Password</label>
-		    <input type="password" class="form-control" id="loginInputPassword" placeholder="Password">
-		  </div>
-		  <button type="submit" class="btn btn-default" id='loginButtonSubmit'>Submit</button>
-		</form>
-	</div> <!-- panel-body -->
-</div> <!-- panel panel-default -->
-</div> <!-- col-md-4 -->
+	<div class="container">
+		<!-- Jumbotron Title -->
+	  	<div class="jumbotron">
+	     	<h1 class="text-center" id="heading-title">AssetIQ</h1>
+	       	<br>
+	       	<br>
+	      	<h2 class="text-center" id="heading-desc">Employee item inventory tracking</h2>
+	 	</div>	
+		<!-- Login Panel -->
+		<div class="row" style="margin-top: 30px">
+			<div class="col-lg-6 col-lg-offset-3">
+				<div class="panel panel-primary">
+	  				<div class="panel-heading">
+	    				<h3 class="panel-title">Login</h3>
+	  				</div>
+		  			<div class="panel-body">
+			  			<form>
+				  			<div class="form-group">
+				  				<p id="login-error"></p>
+				    			<label for="login-input-email">Email Address</label>
+				    			<input type="email" class="form-control" id="login-input-email" placeholder="Email">
+				  			</div>
+				  			<div class="form-group">
+				    			<label for="login-input-password">Password</label>
+				    			<input type="password" class="form-control" id="login-input-password" placeholder="Password">
+				  			</div>
+				  			<button type="submit" class="btn btn-primary" id="login-button-submit">Submit</button>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+		<footer>
+	      	<nav class="navbar navbar-default navbar-fixed-bottom">
+	          	<div class="text-center"><br><span>&copy;2017 WannaGeeks LLC</span>
+	          	</div>
+	      	</nav>
+	  	</footer>
+	</div>
 
-</div> <!-- row -->
-</div> <!-- container -->
+<script type="text/javascript" scr="javascript/auth.js"></script>
 
-
-  <script type="text/javascript" scr='javascript/auth.js'></script>
 </body>
 </html>

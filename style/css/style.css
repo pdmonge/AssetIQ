@@ -7,13 +7,16 @@ body {
 .jumbotron {
   background-color: #bdf4de; }
 
+#heading-title {
+  font: bold 80px times, sans-serif; }
+
 #heading-desc {
   font-family: "Libre Barcode 39 Text", cursive;
   font-size: 60px; }
 
 .navbar {
-  /*background-color: $accentGray;*/
-  border-color: #1a2930 !important; }
+  border-color: #1a2930 !important;
+  font: 15px arial, sans-serif; }
 
 #logout-button {
   float: right;
@@ -30,8 +33,9 @@ select:invalid {
   background-color: #1a2930 !important;
   border-color: #1a2930 !important; }
 
-.panel-primary {
-  border-color: #1a2930 !important; }
+.panel {
+  border-color: #1a2930 !important;
+  font-family: arial, sans-serif; }
 
 .btn-primary {
   background-color: #1a2930 !important; }
