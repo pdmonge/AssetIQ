@@ -1,14 +1,22 @@
 // FIREBASE
 // Initialize Firebase
-var config = {
-  apiKey: "AIzaSyA3CVxnIXyQgnfPZPp1EJsMD1W0xEIGTtw",
-  authDomain: "dubootcamp-group-project1.firebaseapp.com",
-  databaseURL: "https://dubootcamp-group-project1.firebaseio.com",
-  projectId: "dubootcamp-group-project1",
-  storageBucket: "",
-  messagingSenderId: "93086047570"
-};
-firebase.initializeApp(config);
+// var config = {
+//   apiKey: "AIzaSyA3CVxnIXyQgnfPZPp1EJsMD1W0xEIGTtw",
+//   authDomain: "dubootcamp-group-project1.firebaseapp.com",
+//   databaseURL: "https://dubootcamp-group-project1.firebaseio.com",
+//   projectId: "dubootcamp-group-project1",
+//   storageBucket: "",
+//   messagingSenderId: "93086047570"
+// };
+
+// firebase.initializeApp(config);
+
+// REMOVED FIREBASE INITIALIZATION FROM INVENTORY.JS SINCE THERE NOW EXISTS FIREBASEINIT.JS
+// REFERENCED ON ALL HTML PAGES -MKC
+
+$(document).ready(function() {
+
+// Firebase
 
 //eBay API
 function _cb_findItemsByKeywords(response) {
@@ -20,7 +28,7 @@ function _cb_findItemsByKeywords(response) {
         var title = item.title;
   
 
-        $('#tableBody').append('<tr><td><img src="' + imageUrl + '"></td><td>' + title + '</td></tr>');
+        $('#table-body').append('<tr><td><img src="' + imageUrl + '"></td><td>' + title + '</td></tr>');
     }
 }
 
@@ -73,4 +81,17 @@ $.ajax({
     jsonp: false,
     cache: true,
     crossDomain: true,
+});
+
+// Logout Button
+$("#logout-button").on("click", function() {
+    event.preventDefault();
+    // var currentUser = Parse.User.current();
+        // if (currentUser) {
+        //     Parse.User.logout();
+        //     window.location="Sign_In.html";
+        // } else {
+            window.location = "index.html";
+});
+
 });
