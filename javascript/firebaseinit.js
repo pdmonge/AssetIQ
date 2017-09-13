@@ -1,4 +1,3 @@
-// FIREBASE
 // Initialize Firebase
 var config = {
   apiKey: "AIzaSyA3CVxnIXyQgnfPZPp1EJsMD1W0xEIGTtw",
@@ -9,27 +8,3 @@ var config = {
   messagingSenderId: "93086047570"
 };
 firebase.initializeApp(config);
-
-function validateInput() {
-	return true;
-}
-
-$('#loginButtonSubmit').click({
-
-
-	firebase.auth().signInWithEmailAndPassword(email, password).catch(function(error) {
-  // Handle Errors here.
-  // var errorCode = error.code;
-  // var errorMessage = error.message;
-  // ...
-  
-	});
-});
-
-
-
-
-document.ready(function() {
-
-
-});
