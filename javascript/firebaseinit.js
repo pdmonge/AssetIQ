@@ -7,4 +7,5 @@ var config = {
   storageBucket: "dubootcamp-group-project1.appspot.com",
   messagingSenderId: "93086047570"
 };
+
 firebase.initializeApp(config);
