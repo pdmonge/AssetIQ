@@ -14,15 +14,17 @@ function validateInput() {
 	return true;
 }
 
+// Login function
 $('#loginButtonSubmit').click({
-
+	// Get Login email address and password
+	
 
 	firebase.auth().signInWithEmailAndPassword(email, password).catch(function(error) {
   // Handle Errors here.
   // var errorCode = error.code;
   // var errorMessage = error.message;
   // ...
-  
+  console.log('Error: ',error.code,' ',error.message);
 	});
 });
 
