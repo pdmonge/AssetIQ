@@ -1,0 +1,47 @@
+.container {
+	padding-bottom: 70px;
+	
+}
+body {
+	background-image: url("../images/pixel_weave_@2X.png");
+}
+
+#heading-desc {
+	font-family: "Libre Barcode 39 Text", cursive;
+	font-size: 60px;
+}
+
+#logout-button {
+	float: right;
+	margin-bottom: 15px !important;
+	margin-right: 15px;
+}
+
+select:invalid { 
+	color: gray; 
+}
+
+.selection-field {
+	padding-left: 7px;
+}
+
+.panel-heading {
+	background-color: green !important;
+    border-color: green !important;
+}
+
+.panel-primary {
+    border-color: green !important;
+}
+
+.btn-primary {
+	background-color: green !important;
+}
+
+.tableImg {
+    padding: 20px;
+}
+
+.tableText {
+    vertical-align:middle;
+}
