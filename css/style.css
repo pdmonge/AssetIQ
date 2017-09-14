@@ -37,3 +37,11 @@ select:invalid {
 .btn-primary {
 	background-color: green !important;
 }
+
+.tableImg {
+    padding: 20px;
+}
+
+.tableText {
+    vertical-align:middle;
+}
