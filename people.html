@@ -85,14 +85,14 @@
                                         <span class="input-group-addon"><i class="glyphicon glyphicon-briefcase"></i></span>
                                         <select required class="form-control selection-field" id="dept" placeholder="Department" type="text">
                                             <option value="" disabled selected hidden>Please Select</option>
-                                            <option value="one">Accounting</option>
-                                            <option value="two">Design</option>
-                                            <option value="three">Marketing</option>
-                                            <option value="four">Sales</option>
-                                            <option value="five">Tech Support</option>
+                                            <option value="Accounting">Accounting</option>
+                                            <option value="Design">Design</option>
+                                            <option value="Marketing">Marketing</option>
+                                            <option value="Sales">Sales</option>
+                                            <option value="Tech Support">Tech Support</option>
                                         </select>
                                     </div>
-                                </div>   
+                                </div>
                             </div>
                             <div class="form-group">
                                 <label class="col-md-2 control-label">E-Mail</label>
@@ -122,20 +122,20 @@
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="col-md-2 control-label">Asset ID</label>
+                                <label class="col-md-2 control-label">Asset ID #</label>
                                 <div class="col-md-10 input-group-container">
                                     <div class="input-group">
-                                        <span class="input-group-addon"><i class="glyphicon glyphicon-barcode"></i></span>
-                                        <select required class="form-control selection-field" id="asset-id" placeholder="Department" type="text">
-                                             <option value="" disabled selected hidden>Please Select</option>
-                                            <option value="one">321321321</option>
-                                            <option value="two">545452552</option>
-                                            <option value="three">778652251</option>
-                                            <option value="four">655546655</option>
-                                            <option value="five">554112358</option>
+                                        <span class="input-group-addon"><i class="glyphicon glyphicon-briefcase"></i></span>
+                                        <select required class="form-control selection-field" id="dept" placeholder="Department" type="text">
+                                            <option value="" disabled selected hidden>Please Select</option>
+                                            <option value=""></option>
+                                            <option value=""></option>
+                                            <option value=""></option>
+                                            <option value=""></option>
+                                            <option value=""></option>
                                         </select>
                                     </div>
-                                </div>   
+                                </div>
                             </div>
                             <div class="form-group">
                                 <label class="col-md-2 control-label"></label>
@@ -166,7 +166,6 @@
                                     <th>Address</th>
                                     <th>Phone</th>
                                     <th>Asset ID</th>
-                                    <th>View Address on Map</th>
                                 </tr>
                             </thead>
                             <tbody id="all-employees">
@@ -180,13 +179,13 @@
         </div>
         <footer>
             <nav class="navbar navbar-default navbar-fixed-bottom">
-                <div class="text-center"><br><span>&copy;2017 WannaGeeks LLC</span><span><button type="submit" class="btn btn-default" id="logout-button">Logout</button></span></div>
+                <div class="text-center">
+                    <br><span>&copy;2017 WannaGeeks LLC</span><span><button type="submit" class="btn btn-default" id="logout-button">Logout</button></span></div>
             </nav>
         </footer>
     </div>
-
-<script type="text/javascript" src="javascript/people.js"></script>
-
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA8qGohtXBdNLmVJqRo2UmBfd4ljLylrko&libraries=places&callback=initAutocomplete" async defer></script>
+    <script type="text/javascript" src="javascript/people.js"></script>
 </body>
 
 </html>
