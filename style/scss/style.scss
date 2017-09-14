@@ -1,0 +1,61 @@
+$mainColor: #1a2930 !important;
+$accentTeal: #bdf4de;
+
+$headFont: bold 80px times, sans-serif;
+$navFont: 15px arial, sans-serif;
+$mainFont: arial, sans-serif;
+
+
+.container {
+	padding-bottom: 70px;
+}
+
+body {
+	background-image: url("../images/greyzz_@2X.png");
+}
+
+.jumbotron {
+	background-color: $accentTeal;
+}
+
+#heading-title {
+	font: $headFont;
+}
+
+#heading-desc {
+	font-family: "Libre Barcode 39 Text", cursive;
+	font-size: 60px;
+}
+
+.navbar {
+	border-color: $mainColor; 
+	font: $navFont;
+}
+
+#logout-button {
+	float: right;
+	margin-bottom: 15px !important;
+	margin-right: 15px;
+}
+
+select:invalid { 
+	color: gray; 
+}
+
+.selection-field {
+	padding-left: 7px;
+}
+
+.panel-heading {
+	background-color: $mainColor;
+    border-color: $mainColor;
+}
+
+.panel {
+    border-color: $mainColor;
+    font-family: $mainFont;
+}
+
+.btn-primary {
+	background-color: $mainColor;
+}
