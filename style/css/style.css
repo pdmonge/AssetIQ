@@ -40,4 +40,10 @@ select:invalid {
 .btn-primary {
   background-color: #1a2930 !important; }
 
+.tableImg {
+  padding: 20px; }
+
+.tableText {
+  vertical-align: middle; }
+
 /*# sourceMappingURL=style.css.map */
