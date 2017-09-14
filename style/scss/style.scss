@@ -67,3 +67,9 @@ select:invalid {
 .tableText {
     vertical-align: middle;
 }
+
+#auth-message {
+	text-align: center;
+	font-family: $mainFont;
+	font-weight: bold;
+}
