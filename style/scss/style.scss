@@ -42,8 +42,16 @@ select:invalid {
 	color: gray; 
 }
 
+select[type=text] {
+	-webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+
+    color: gray;
+}
+
 .selection-field {
-	padding-left: 7px;
+	padding-left: 12px;
 }
 
 .panel-heading {
