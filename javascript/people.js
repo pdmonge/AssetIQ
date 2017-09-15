@@ -43,7 +43,7 @@ var firstName, lastName, name, position, department, email, address, phone, asse
             email: email,
             address: address,
             phone: phone,
-            assetID: "",
+            assetID: 0,
             created: firebase.database.ServerValue.TIMESTAMP
         };
 
@@ -52,7 +52,7 @@ var firstName, lastName, name, position, department, email, address, phone, asse
 
 
         // Upload employee data to database
-        firebase.database().ref().push(newEmployee);
+        firebase.database().ref().child('employees').push(newEmployee);
 
 
         // Clear input fields
@@ -67,7 +67,7 @@ var firstName, lastName, name, position, department, email, address, phone, asse
     });
 
 
-    firebase.database().ref().on("child_added", function(childSnapshot, prevChildKey) {
+    firebase.database().ref().child('employees').on("child_added", function(childSnapshot, prevChildKey) {
 
         // Create local variables from child object
         name = childSnapshot.val().name;
@@ -76,7 +76,7 @@ var firstName, lastName, name, position, department, email, address, phone, asse
         email = childSnapshot.val().email;
         address = childSnapshot.val().address;
         phone = childSnapshot.val().phone;
-
+        assetID = childSnapshot.val().assetID;
 
 
     $("#people-table > tbody").append("<tr><td>" + name + "</td><td>" + position + "</td><td>" +

@@ -2,13 +2,25 @@
 // Create a variable to reference the database that is set in config
     var database = firebase.database();
 
+$(document).ready(function () {
+    var employees = database.ref('employees').orderByChild("name").on("child_added", function (childSnapshot) {
+    var employee = childSnapshot.val()
+    $('#employee-dropdown').append($('<option>', {
+        value: childSnapshot.key,
+        text: employee.name
+    }));
+
+    });
+});
+
+
     // Initial Values
     var assetID = 1000;
     var itemBrand = "";
     var modelNumber = "";
     var itemImage = "";
     var itemDescription = "";
-    var name = "_";
+ 
 
     // Form Capture Button Click
     $("#submit-asset-btn").on("click", function (event) {
@@ -33,17 +45,20 @@
             var item = response.findItemsByKeywordsResponse[0].searchResult[0].item[idx];
             var imageUrl = item.galleryURL[0];
             var title = item.title;
-
+            var empKey = $('#employee-dropdown').val();
+            var empName = $('#employee-dropdown option:selected').text();
             // Code for handling the push
-            database.ref('assets').push({
+            database.ref().child('assets').push({
                 ItemBrand: itemBrand,
                 ModelNumber: modelNumber,
                 AssetID: assetID,
                 ItemImage: imageUrl,
                 ItemDescription: title,
-                EmployeeName: name,
+                EmployeeName: empName,
+                EmployeeKey: empKey,
                 dateAdded: firebase.database.ServerValue.TIMESTAMP,
             });
+            database.ref('employees/' + empKey + '/assetID').set(assetID);
         }
     }
 
@@ -98,7 +113,7 @@
         });
     };
 
-    database.ref('assets').orderByChild("dateAdded").on("child_added", function (childSnapshot) {
+    database.ref().child('assets').orderByChild("dateAdded").on("child_added", function (childSnapshot) {
         // storing the snapshot.val() in a variable for convenience
         var sv = childSnapshot.val();
 
@@ -106,25 +121,23 @@
             assetID = sv.AssetID;
         }
 
+        var name = (sv.EmployeeKey) ? sv.EmployeeName : 'Unassigned';
+
         $("#item-list").append('<div class="row" id="' + childSnapshot.key + '"><div class="col-sm-2"><img class="tableImg" src="' + sv.ItemImage +
             '" /></div><div class="col-sm-5"><h5 class="tableText">' + sv.ItemDescription +
             '</h5></div ><div class="col-sm-2"><h5 class="tableText">' + sv.AssetID +
-            '</h5></div ><div class="col-sm-3"><h5 class="tableText">' + sv.EmployeeName +
-            // '</h5></div><div class="col-sm-2"><h5 class="tableText"><button class="deleteButton" data-key="' + childSnapshot.key + '">Delete</button>' +
+            '</h5></div ><div class="col-sm-3"><h5 class="tableText">' + name +
             '</h5></div></div>');
-
-        // $('.deleteButton').on('click', function () {
-        //     database.ref('assets' + '/' + $(this).attr('data-key')).remove();
-        // });
 
         // Handle the errors
     }, function (errorObject) {
         console.log("Errors handled: " + errorObject.code);
     });
 
-    database.ref('assets').on("child_removed", function (oldChildSnapshot) {
+    database.ref().child('assets').on("child_removed", function (oldChildSnapshot) {
         $('#' + oldChildSnapshot.key).remove();
         var oldAssetId = oldChildSnapshot.AssetID;
+        database.ref('employees/' + oldChildSnapshot.EmployeeKey + '/assetID').set(undefined);
     });
 
     $("#logout-button").on("click", function() {
