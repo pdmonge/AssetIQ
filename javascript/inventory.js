@@ -126,11 +126,6 @@
 
     $("#logout-button").on("click", function() {
     event.preventDefault();
-    // var currentUser = Parse.User.current();
-        // if (currentUser) {
-        //     Parse.User.logout();
-        //     window.location="Sign_In.html";
-        // } else {
-            window.location = "index.html";
-
+    firebase.auth().signOut();
+    window.location = "index.html";
 });
