@@ -172,13 +172,13 @@
                     </div>
                     <div class="panel-body" id="employee-list-div">
                         <table class="table table-hover table-bordered table-striped" id="people-table">
-                            <thead>
+                            <thead id="emp-list-headings">
                                 <tr>
                                     <th class="emp-heading">Employee Name</th>
                                     <th class="emp-heading">Position</th>
                                     <th class="emp-heading">Department</th>
                                     <th class="emp-heading">Email</th>
-                                    <th class="emp-heading">Address</th>
+                                    <th class="emp-heading" id="address-heading">Address</th>
                                     <th class="emp-heading">Phone</th>
                                     <th class="emp-heading">Asset ID</th>
                                 </tr>
@@ -198,7 +198,9 @@
             </nav>
         </footer>
     </div>
+
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA8qGohtXBdNLmVJqRo2UmBfd4ljLylrko&libraries=places&callback=initAutocomplete" async defer></script>
+    
     <script type="text/javascript" src="javascript/people.js"></script>
 </body>
 

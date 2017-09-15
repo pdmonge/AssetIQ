@@ -1,3 +1,4 @@
+/*SASS!!!*/
 $mainColor: #1a2930 !important;
 $accentTeal: #bdf4de;
 
@@ -14,6 +15,7 @@ body {
 	background-image: url("../images/greyzz_@2X.png");
 }
 
+/*FIRST INSTANCE OF SASS VARIABLES USED*/
 .jumbotron {
 	background-color: $accentTeal;
 }
@@ -32,10 +34,20 @@ body {
 	font: $navFont;
 }
 
-#logout-button {
-	float: right;
-	margin-bottom: 15px !important;
-	margin-right: 15px;
+/*SASS NESTING OPTION UTILIZED*/
+.panel {
+	border-color: $mainColor;
+    font-family: $mainFont;
+
+
+    .panel-heading {
+    	background-color: $mainColor;
+    	border-color: $mainColor;
+    }
+}
+
+.btn-primary {
+	background-color: $mainColor;
 }
 
 select:invalid { 
@@ -54,20 +66,6 @@ select[type=text] {
 	padding-left: 12px;
 }
 
-.panel-heading {
-	background-color: $mainColor;
-    border-color: $mainColor;
-}
-
-.panel {
-    border-color: $mainColor;
-    font-family: $mainFont;
-}
-
-.btn-primary {
-	background-color: $mainColor;
-}
-
 .tableImg {
     padding: 20px;
 }
@@ -80,4 +78,23 @@ select[type=text] {
 	text-align: center;
 	font-family: $mainFont;
 	font-weight: bold;
+}
+
+#address-heading {
+	width: 230px;
+}
+
+#emp-list-headings {
+	font-weight: bold;
+}
+
+.item-heading {
+	font-weight: bold;
+	font-size: 20px;
+}
+
+#logout-button {
+	float: right;
+	margin-bottom: 15px !important;
+	margin-right: 15px;
 }
