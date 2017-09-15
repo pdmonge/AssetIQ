@@ -52,7 +52,7 @@ var firstName, lastName, name, position, department, email, address, phone, asse
 
 
         // Upload employee data to database
-        firebase.database().ref().push(newEmployee);
+        firebase.database().ref("employees").push(newEmployee);
 
 
         // Clear input fields
