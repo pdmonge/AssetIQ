@@ -37,7 +37,7 @@ $(document).ready(function() {
             email: email,
             address: address,
             phone: phone,
-            assetID: "",
+            assetID: 0,
             created: firebase.database.ServerValue.TIMESTAMP
         };
 
@@ -46,7 +46,9 @@ $(document).ready(function() {
 
 
         // Upload employee data to database
-        firebase.database().ref("employees").push(newEmployee);
+
+        firebase.database().ref().child('employees').push(newEmployee);
+
 
 
         // Clear input fields
@@ -61,7 +63,9 @@ $(document).ready(function() {
     });
 
 
-    firebase.database().ref("employees").on("child_added", function(childSnapshot, prevChildKey) {
+
+    firebase.database().ref().child('employees').on("child_added", function(childSnapshot, prevChildKey) {
+
 
         // Create local variables from child object
         name = childSnapshot.val().name;
@@ -70,7 +74,7 @@ $(document).ready(function() {
         email = childSnapshot.val().email;
         address = childSnapshot.val().address;
         phone = childSnapshot.val().phone;
-
+        assetID = childSnapshot.val().assetID;
 
 
         $("#people-table > tbody").append("<tr><td>" + name + "</td><td>" + position + "</td><td>" +
