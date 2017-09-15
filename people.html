@@ -70,6 +70,15 @@
                                 </div>
                             </div>
                             <div class="form-group">
+                                <label class="col-sm-2 control-label">Position</label>
+                                <div class="col-sm-10 input-group-container">
+                                    <div class="input-group">
+                                        <span class="input-group-addon"><i class="glyphicon glyphicon-star"></i></span>
+                                        <input id="position" placeholder="Position" class="form-control" type="text">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
                                 <label class="col-sm-2 control-label">Department</label>
                                 <div class="col-sm-10 input-group-container">
                                     <div class="input-group">
@@ -116,8 +125,8 @@
                                 <label class="col-sm-2 control-label">Asset ID</label>
                                 <div class="col-sm-10 input-group-container">
                                     <div class="input-group">
-                                        <span class="input-group-addon"><i class="glyphicon glyphicon-briefcase"></i></span>
-                                        <select required class="form-control selection-field" id="dept" placeholder="Department" type="text">
+                                        <span class="input-group-addon"><i class="glyphicon glyphicon-barcode"></i></span>
+                                        <select required class="form-control selection-field" id="asset-id-dropdown" placeholder="Asset ID" type="text">
                                             <option value="" disabled selected hidden>Please Select</option>
                                             <option value=""></option>
                                             <option value=""></option>
@@ -151,6 +160,7 @@
                             <thead>
                                 <tr>
                                     <th>Employee Name</th>
+                                    <th>Position</th>
                                     <th>Department</th>
                                     <th>Email</th>
                                     <th>Address</th>
