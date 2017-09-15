@@ -1,9 +1,11 @@
+/*SASS!!!*/
 .container {
   padding-bottom: 70px; }
 
 body {
   background-image: url("../images/greyzz_@2X.png"); }
 
+/*FIRST INSTANCE OF SASS VARIABLES USED*/
 .jumbotron {
   background-color: #bdf4de; }
 
@@ -18,10 +20,16 @@ body {
   border-color: #1a2930 !important;
   font: 15px arial, sans-serif; }
 
-#logout-button {
-  float: right;
-  margin-bottom: 15px !important;
-  margin-right: 15px; }
+/*SASS NESTING OPTION UTILIZED*/
+.panel {
+  border-color: #1a2930 !important;
+  font-family: arial, sans-serif; }
+  .panel .panel-heading {
+    background-color: #1a2930 !important;
+    border-color: #1a2930 !important; }
+
+.btn-primary {
+  background-color: #1a2930 !important; }
 
 select:invalid {
   color: gray; }
@@ -35,17 +43,6 @@ select[type=text] {
 .selection-field {
   padding-left: 12px; }
 
-.panel-heading {
-  background-color: #1a2930 !important;
-  border-color: #1a2930 !important; }
-
-.panel {
-  border-color: #1a2930 !important;
-  font-family: arial, sans-serif; }
-
-.btn-primary {
-  background-color: #1a2930 !important; }
-
 .tableImg {
   padding: 20px; }
 
@@ -56,5 +53,20 @@ select[type=text] {
   text-align: center;
   font-family: arial, sans-serif;
   font-weight: bold; }
+
+#address-heading {
+  width: 230px; }
+
+#emp-list-headings {
+  font-weight: bold; }
+
+.item-heading {
+  font-weight: bold;
+  font-size: 20px; }
+
+#logout-button {
+  float: right;
+  margin-bottom: 15px !important;
+  margin-right: 15px; }
 
 /*# sourceMappingURL=style.css.map */
