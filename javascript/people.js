@@ -7,8 +7,7 @@
 $(document).ready(function() {
 
 // Firebase
-// var firstName, lastName, name, position, department, email, address, phone, assetID;
-var firstName, lastName, name, position, email, address, phone, assetID;
+var firstName, lastName, name, position, department, email, address, phone, assetID;
 
     // Button for adding new employee
     $("#input-user").on("click", function() {
@@ -18,33 +17,29 @@ var firstName, lastName, name, position, email, address, phone, assetID;
         lastName = $("#last-name").val().trim();
         name = firstName + " " + lastName;
         position = $("#position").val().trim();
-         // department: department,
+        department = $("#dept").val();
         email = $("#email").val().trim();
         address = $("#home").val().trim();
         phone = $("#phone").val().trim();
 
+
         //beginning of alert that asks if the information looks correct and you
         //are ready to submit
         // change to modal 
-
         var confirmSubmit = confirm("Does everything look okay to you? " + "\n" + "\n" + "Name: " +
-            name + "\n" + "Position: " + position + "\n" + "Email: " + email +
-            "\n" + "Address: " + address + "\n" + "Phone: " + phone);
+ +            name + "\n" + "Position: " + position + "\n" + "Department: " + department + "\n" + "Email: " + email +
+ +            "\n" + "Address: " + address + "\n" + "Phone: " + phone);
 
         if (confirmSubmit == false) {
             return false;
         }
 
 
-
-
-
-
         // Create local object to hold employee data
         var newEmployee = {
             name: name,
             position: position,
-            // department: department,
+            department: department,
             email: email,
             address: address,
             phone: phone,
@@ -53,67 +48,52 @@ var firstName, lastName, name, position, email, address, phone, assetID;
         };
 
 
-
         console.log(newEmployee.name);
 
+
         // Upload employee data to database
-
         firebase.database().ref().push(newEmployee);
-
-
 
 
         // Clear input fields
         $("#first-name").val("");
         $("#last-name").val("");
         $("#position").val("");
-        // $("#dept").val("");
+        $("#dept").val("");
         $("#email").val("");
         $("#home").val("");
         $("#phone").val("");
 
-
     });
 
+
     firebase.database().ref().on("child_added", function(childSnapshot, prevChildKey) {
-
-
 
         // Create local variables from child object
         name = childSnapshot.val().name;
         position = childSnapshot.val().position;
-        // department = childSnapshot.val().department;
+        department = childSnapshot.val().department;
         email = childSnapshot.val().email;
         address = childSnapshot.val().address;
         phone = childSnapshot.val().phone;
 
 
 
-         // $("#people-table > tbody").append("<tr><td>" + name + "</td><td>" + position + "</td><td>" +
-    //     department + "</td><td>" + email + "</td><td>" + address + "</td><td>" + phone + "</td><td>" + assetID + "</td></tr>");
-
     $("#people-table > tbody").append("<tr><td>" + name + "</td><td>" + position + "</td><td>" +
-         email + "</td><td>" + address + "</td><td>" + phone + "</td><td>" + assetID + "</td></tr>");
-
-
+        department + "</td><td>" + email + "</td><td>" + address + "</td><td>" + phone + "</td><td>" + assetID + "</td></tr>");
     });
-
 
 
     // Logout Button
     $("#logout-button").on("click", function() {
-        event.preventDefault();
-        // var currentUser = Parse.User.current();
-        // if (currentUser) {
-        //     Parse.User.logout();
-        //     window.location="Sign_In.html";
-        // } else {
-        window.location = "index.html";
+    event.preventDefault();
+    firebase.auth().signOut();
+    window.location = "index.html";
     });
 
 });
-//auto-complete through GoogleMaps API
 
+//auto-complete through GoogleMaps API
 var placeSearch, autocomplete;
 
 function initAutocomplete() {
@@ -122,8 +102,6 @@ function initAutocomplete() {
     autocomplete = new google.maps.places.Autocomplete(
         /** @type {!HTMLInputElement} */
         (document.getElementById('home')), { types: ['geocode'] });
-
-
 }
 
 
