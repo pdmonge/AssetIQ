@@ -12,6 +12,10 @@
     <!-- CSS -->
     <link rel="stylesheet" type="text/css" href="style/css/reset.css">
     <link rel="stylesheet" type="text/css" href="style/css/style.css">
+    <!-- Needed for Modal -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <!-- bootstrap-js -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Libre+Barcode+39+Text" rel="stylesheet">
     <!-- Initialize Firebase JS -->
@@ -142,6 +146,23 @@
                                 <div class="col-sm-1">
                                     <br>
                                     <button id="input-user" type="button" class="btn btn-primary">Submit</button>
+                                    <div class="modal fade" id="my-modal" role="dialog">
+                                        <div class="modal-dialog">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                                    <h4 class="modal-title">Does Everything Look Alright? </h4>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <p>Does everything look Correct? </p>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button id="yes" type="button" input-type="Submit" class="btn btn-primary" data-dismiss="modal" value="true">Yes Submit</button>
+                                                    <button id="no" type="button" class="btn btn-default" data-dismiss="modal" value="false">No Edit</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </form>
