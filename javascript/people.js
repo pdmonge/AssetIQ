@@ -1,18 +1,16 @@
-//Needs to Be done: Asset ID will be queried from inventory page then populate
-//in the dropdown box for selection prior to form submission
-
-
 //Initialize Firebase through external link
 
 $(document).ready(function() {
 
-// Firebase
-var firstName, lastName, name, position, department, email, address, phone, assetID;
+    // Firebase
+    var firstName, lastName, name, position, department, email, address, phone, assetID;
+
+
+    var modalValue = $("#no").val();
+    var modalValue2 = $("#yes").val();
 
     // Button for adding new employee
     $("#input-user").on("click", function() {
-        event.preventDefault();
-        //retrieving values from form field
         firstName = $("#first-name").val().trim();
         lastName = $("#last-name").val().trim();
         name = firstName + " " + lastName;
@@ -21,19 +19,15 @@ var firstName, lastName, name, position, department, email, address, phone, asse
         email = $("#email").val().trim();
         address = $("#home").val().trim();
         phone = $("#phone").val().trim();
+        $("#my-modal").modal();
+        $(".modal-body").html("Name: " + name + "<br>" + "Position: " + position + "<br>" + "Department: " + department + "<br>" + "Email: " + email +
+            "<br>" + "Address: " + address + "<br>" + "Phone: " + phone);
 
 
-        //beginning of alert that asks if the information looks correct and you
-        //are ready to submit
-        // change to modal 
-        var confirmSubmit = confirm("Does everything look okay to you? " + "\n" + "\n" + "Name: " +
- +            name + "\n" + "Position: " + position + "\n" + "Department: " + department + "\n" + "Email: " + email +
- +            "\n" + "Address: " + address + "\n" + "Phone: " + phone);
+    });
 
-        if (confirmSubmit == false) {
-            return false;
-        }
-
+    $("#yes").on("click", function() {
+        event.preventDefault();
 
         // Create local object to hold employee data
         var newEmployee = {
@@ -52,7 +46,9 @@ var firstName, lastName, name, position, department, email, address, phone, asse
 
 
         // Upload employee data to database
+
         firebase.database().ref().child('employees').push(newEmployee);
+
 
 
         // Clear input fields
@@ -67,7 +63,9 @@ var firstName, lastName, name, position, department, email, address, phone, asse
     });
 
 
+
     firebase.database().ref().child('employees').on("child_added", function(childSnapshot, prevChildKey) {
+
 
         // Create local variables from child object
         name = childSnapshot.val().name;
@@ -79,16 +77,16 @@ var firstName, lastName, name, position, department, email, address, phone, asse
         assetID = childSnapshot.val().assetID;
 
 
-    $("#people-table > tbody").append("<tr><td>" + name + "</td><td>" + position + "</td><td>" +
-        department + "</td><td>" + email + "</td><td>" + address + "</td><td>" + phone + "</td><td>" + assetID + "</td></tr>");
+        $("#people-table > tbody").append("<tr><td>" + name + "</td><td>" + position + "</td><td>" +
+            department + "</td><td>" + email + "</td><td>" + address + "</td><td>" + phone + "</td><td>" + assetID + "</td></tr>");
     });
 
 
     // Logout Button
     $("#logout-button").on("click", function() {
-    event.preventDefault();
-    firebase.auth().signOut();
-    window.location = "index.html";
+        event.preventDefault();
+        firebase.auth().signOut();
+        window.location = "index.html";
     });
 
 });
