@@ -47,7 +47,7 @@ $(document).ready(function() {
 
         // Upload employee data to database
 
-        firebase.database().ref().child('employees').push(newEmployee);
+        firebase.database().ref('employees').push(newEmployee);
 
 
 
@@ -64,7 +64,7 @@ $(document).ready(function() {
 
 
 
-    firebase.database().ref().child('employees').on("child_added", function(childSnapshot, prevChildKey) {
+    firebase.database().ref('employees').on("child_added", function(childSnapshot, prevChildKey) {
 
 
         // Create local variables from child object
