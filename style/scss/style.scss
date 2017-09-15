@@ -42,8 +42,16 @@ select:invalid {
 	color: gray; 
 }
 
+select[type=text] {
+	-webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+
+    color: gray;
+}
+
 .selection-field {
-	padding-left: 7px;
+	padding-left: 12px;
 }
 
 .panel-heading {
@@ -58,4 +66,18 @@ select:invalid {
 
 .btn-primary {
 	background-color: $mainColor;
+}
+
+.tableImg {
+    padding: 20px;
+}
+
+.tableText {
+    vertical-align: middle;
+}
+
+#auth-message {
+	text-align: center;
+	font-family: $mainFont;
+	font-weight: bold;
 }
