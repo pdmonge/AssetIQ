@@ -126,8 +126,8 @@ $(document).ready(function () {
         $("#item-list").append('<div class="row" id="' + childSnapshot.key + '"><div class="col-sm-2"><img class="tableImg" src="' + sv.ItemImage +
 
   
-            '" /></div><div class="col-sm-7"><h5 class="tableText">' + sv.ItemDescription +
-            '</h5></div ><div class="col-sm-3"><h5 class="tableText">' + sv.AssetID +
+            '" /></div><div class="col-sm-8"><h5 class="tableText">' + sv.ItemDescription +
+            '</h5></div ><div class="col-sm-2"><h5 class="tableText">' + sv.AssetID +
             // '</h5></div ><div class="col-sm-3"><h5 class="tableText">' + sv.EmployeeName +
             // '</h5></div><div class="col-sm-2"><h5 class="tableText"><button class="deleteButton" data-key="' + childSnapshot.key + '">Delete</button>' +
 
