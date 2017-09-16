@@ -98,8 +98,10 @@ var eBaySearch = function(itemBrand, modelNumber) {
   var uri = "/services/search/FindingService/v1";
   var endpoint = "svcs.ebay.com";
 
+
   var request_url = 'http://' + endpoint + uri + '?' + canonical_query_string;
   console.log('request_url = ' + request_url);
+
 
   $.ajax({
     url: request_url,
