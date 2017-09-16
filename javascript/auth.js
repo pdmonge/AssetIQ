@@ -15,7 +15,7 @@ $(document).ready(function() {
 
     firebase.auth().signInWithEmailAndPassword(email, password)
     .then(function (user) {
-      window.location = 'people.html';
+      window.location = 'inventory.html';
     })
     .catch(function(error) {
       // Handle Errors here.
