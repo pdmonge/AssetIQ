@@ -100,7 +100,7 @@ var eBaySearch = function(itemBrand, modelNumber) {
   var endpoint = "svcs.ebay.com";
 
 
-  var request_url = 'http://' + endpoint + uri + '?' + canonical_query_string;
+  var request_url = 'https://' + endpoint + uri + '?' + canonical_query_string;
   console.log('request_url = ' + request_url);
 
 
