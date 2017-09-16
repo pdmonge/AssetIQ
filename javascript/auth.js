@@ -22,8 +22,6 @@ $(document).ready(function() {
       $('#auth-message').text(error.message);
     });
 
-    
-
     console.log(firebase.UserInfo);
   });
 });
