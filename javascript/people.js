@@ -35,11 +35,11 @@ $(document).ready(function() {
       email: email,
       address: address,
       phone: phone,
-      assetID: 0,
+      assetID: assetID,
       created: firebase.database.ServerValue.TIMESTAMP
     };
 
-    console.log(newEmployee.name);
+    // console.log(newEmployee.name);
 
     // Upload employee data to database
     firebase.database().ref('employees').push(newEmployee);
@@ -52,6 +52,9 @@ $(document).ready(function() {
     $("#email").val("");
     $("#home").val("");
     $("#phone").val("");
+
+    // Remove asset from assetList array and reload asset dropdown
+    removeAssetFromDropdown(assetID);
   });
 
   firebase.database().ref('employees').on("child_added", function(childSnapshot, prevChildKey) {
@@ -133,7 +136,7 @@ function loadAssetDropdown() {
       // Create list of assigned assets
       employeesSnapshot.forEach(function(aEmployeeSnapshot) {
         var employeeData = aEmployeeSnapshot.val();
-        console.log('Employee Data: ',employeeData);
+        // console.log('Employee Data: ',employeeData);
         if (employeeData.assetID != '') {
           assignedAssetList.push(employeeData.assetID);
         }
@@ -162,10 +165,23 @@ function loadAssetDropDownFromArray() {
   for (var i = 0,len=assetList.length;i<len;i++) {
     currentAsset = assetList[i];
     var newOptionItem = $('<option>');
-    console.log(newOptionItem);
+    // console.log(newOptionItem);
     newOptionItem.attr('data-index',i);
     newOptionItem.val(currentAsset.AssetID);
     newOptionItem.text(currentAsset.AssetID+' '+currentAsset.ItemDescription[0]);
     assetDropDown.append(newOptionItem);
   }
 } // function loadAssetDropDownFromArray
+
+// Remove asset from assetList array then reload asset list dropdown
+function removeAssetFromDropdown(aAssetID) {
+  var tempAssetList = [];
+  for (var i=0,len=assetList.length;i<len;i++) {
+    currentAsset = assetList[i];
+    if (currentAsset.AssetID != aAssetID) {
+      tempAssetList.push(currentAsset);
+    }
+  }
+  assetList = tempAssetList;
+  loadAssetDropDownFromArray();
+}
