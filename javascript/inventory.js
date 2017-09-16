@@ -17,7 +17,8 @@ var itemBrand = "";
 var modelNumber = "";
 var itemImage = "";
 var itemDescription = "";
-
+var empName = "";
+var empKey = "";
 
 // Form Capture Button Click
 $("#submit-asset-btn").on("click", function(event) {
@@ -43,8 +44,8 @@ function _cb_findItemsByKeywords(response) {
     var imageUrl = item.galleryURL[0];
     var title = item.title;
     // var empKey = $('#employee-dropdown').val();
-    var empKey = '';
-    var empName = $('#employee-dropdown option:selected').text();
+    // var empKey = '';
+    // var empName = $('#employee-dropdown option:selected').text();
     // Code for handling the push
     database.ref().child('assets').push({
       ItemBrand: itemBrand,
@@ -56,7 +57,7 @@ function _cb_findItemsByKeywords(response) {
       EmployeeKey: empKey,
       dateAdded: firebase.database.ServerValue.TIMESTAMP,
     });
-    database.ref('employees/' + empKey + '/assetID').set(assetID);
+    // database.ref('employees/' + empKey + '/assetID').set(assetID);
   }
 }
 
@@ -138,11 +139,11 @@ database.ref().child('assets').orderByChild("dateAdded").on("child_added", funct
   console.log("Errors handled: " + errorObject.code);
 });
 
-database.ref().child('assets').on("child_removed", function(oldChildSnapshot) {
-  $('#' + oldChildSnapshot.key).remove();
-  var oldAssetId = oldChildSnapshot.AssetID;
-  database.ref('employees/' + oldChildSnapshot.EmployeeKey + '/assetID').set(undefined);
-});
+// database.ref().child('assets').on("child_removed", function(oldChildSnapshot) {
+//   $('#' + oldChildSnapshot.key).remove();
+//   var oldAssetId = oldChildSnapshot.AssetID;
+//   database.ref('employees/' + oldChildSnapshot.EmployeeKey + '/assetID').set(undefined);
+// });
 
 // Logout Button
 $("#logout-button").on("click", function() {
