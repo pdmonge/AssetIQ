@@ -57,6 +57,9 @@ select[type=text] {
 #address-heading {
   width: 230px; }
 
+#email-heading {
+  width: 150px; }
+
 #emp-list-headings {
   font-weight: bold; }
 
