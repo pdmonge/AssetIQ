@@ -1,4 +1,4 @@
-# agile-inventory
+# AssetIQ
 An easy small business inventory system.
 
 Basic Asset check-out check-in
