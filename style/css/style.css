@@ -9,7 +9,7 @@ body {
 .jumbotron {
   background-color: #bdf4de; }
 
-#heading-title {
+.heading-title {
   font: bold 80px times, sans-serif; }
 
 #heading-desc {
